@@ -80,7 +80,7 @@ int (*call_vec[])(void) = {
 	do_set, 	/* 66 = setgroups */
 	do_getmcontext,	/* 67 = getmcontext */
 	do_setmcontext,	/* 68 = setmcontext */
-	no_sys,		/* 69 = unused	*/
+	do_printmessage,	/* 69 = do_printmessage	*/
 	no_sys,		/* 70 = unused	*/
 	do_sigaction,	/* 71 = sigaction   */
 	do_sigsuspend,	/* 72 = sigsuspend  */
@@ -125,7 +125,6 @@ int (*call_vec[])(void) = {
 	do_srv_kill,	/* 111 = srv_kill */
  	no_sys, 	/* 112 = gcov_flush */
 	do_get,		/* 113 = getsid	*/
-	do_printmessage,	/* 114 = do_printmessage */
 };
 /* This should not fail with "array size is negative": */
 extern int dummy[sizeof(call_vec) == NCALLS * sizeof(call_vec[0]) ? 1 : -1];
