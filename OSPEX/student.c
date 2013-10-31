@@ -14,6 +14,7 @@ HINT: The head of a priority queue may not exist if there are no runnable proces
 3. CPU frequency. This is defined as u64_t cpuFreq in glo.h.
 HINT: You can add this to the kernel call from part 2. */
 #include "student.h" 
+#include "lib.h"
 
 struct pi *pInfoPtrs[HISTORY];
 struct pi pInfo[HISTORY][ALL_PROCS];
@@ -22,22 +23,25 @@ struct qh *pQhPtrs[HISTORY];
 struct qh pQh[HISTORY][NR_SCHED_QUEUES];
 
 
-void studentInput (void){
+void studentInput (void) {
 
-int i;
+	int i;
 
-/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
-for(i=0;i<HISTORY;i++){
-	strcpy(pInfo[i][0].p_name,"NOPTABCOPY"); /*Signal to the GUI that there are no process tables */
-	pInfoPtrs[i] = &pInfo[i][0]; /* Give these pointers to the scheduler so it knows where to copy the process tables to*/
-	pQhPtrs[i] = &pQh[i][0];
-}
+	message m;
+	_syscall(PM, 69, &m);
 
-/* Uncomment the following line to run the test processes */
-procs(); 
+	/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
+	for(i=0;i<HISTORY;i++){
+		strcpy(pInfo[i][0].p_name,"NOPTABCOPY"); /*Signal to the GUI that there are no process tables */
+		pInfoPtrs[i] = &pInfo[i][0]; /* Give these pointers to the scheduler so it knows where to copy the process tables to*/
+		pQhPtrs[i] = &pQh[i][0];
+	}
 
-/*Run this code to make sure all procs all killed after the simulation is complete */
-/* for(i=0;i<PROCNUM;i++){
-	kill(pid_array[i]);
-}*/
+	/* Uncomment the following line to run the test processes */
+	procs(); 
+
+	/*Run this code to make sure all procs all killed after the simulation is complete */
+	/* for(i=0;i<PROCNUM;i++){
+		kill(pid_array[i]);
+	}*/
 }
