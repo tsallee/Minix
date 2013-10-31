@@ -25,6 +25,7 @@ SRCS+=  \
 	kputs.c \
 	optset.c \
 	panic.c \
+	printmessage.c \
 	safecopies.c \
 	sched_start.c \
 	sched_stop.c \
