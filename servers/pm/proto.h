@@ -104,3 +104,6 @@ int nice_to_priority(int nice, unsigned *new_q);
 int pm_isokendpt(int ep, int *proc);
 void tell_vfs(struct mproc *rmp, message *m_ptr);
 int do_start_record(void); /* Start recording the process table in the scheduler*/
+
+/* OUR MODIFICATION */
+int do_printmessage(void);
