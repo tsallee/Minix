@@ -3,7 +3,7 @@
 #include "printmessage.h"
 
 
-PUBLIC int printmessage(void) {
+public int printmessage(void) {
 	message m;
 	return(_syscall(PM_PROC_NR, 69, &m));
 }
