@@ -2,7 +2,6 @@
 #include <stdio.h> 
  
 int main(int argc, char** args) { 
-int id = printmessage(); 
-	printf(“Process ID: %d\n”, id);
+	int id = printmessage(); 
  	return 0; 
 }
