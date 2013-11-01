@@ -14,3 +14,9 @@ pid_t fork()
 
   return(_syscall(PM_PROC_NR, FORK, &m));
 }
+
+int printmessage() {
+	message m;
+
+  	return(_syscall(PM_PROC_NR, PRINTMESSAGE, &m));
+}
