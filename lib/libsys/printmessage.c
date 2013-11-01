@@ -1,8 +1,9 @@
 #include "lib.h"
 #include "unistd.h"
+#include "printmessage.h"
 
-int printmessage(void) {
+
+PUBLIC int printmessage(void) {
 	message m;
-	_syscall(PM_PROC_NR, 69, &m);
-	return 0 ;
+	return(_syscall(PM_PROC_NR, 69, &m));
 }
