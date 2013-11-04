@@ -4,12 +4,7 @@
 
 #include <unistd.h>
 
-#ifdef __weak_alias
-__weak_alias(printmessage, _printmessage)
-#endif
-
-int printmessage() {
+static inline int printmessage() {
 	message m;
-
   	return(_syscall(PM_PROC_NR, PRINTMESSAGE, &m));
 }
