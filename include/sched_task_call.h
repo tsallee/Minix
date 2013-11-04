@@ -1,6 +1,6 @@
 #include <sys/cdefs.h>
 #include <lib.h>
-
+#include <minix/syslib.h>
 #include <unistd.h>
 
 static inline int sched_task_call() {
