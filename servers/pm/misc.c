@@ -25,6 +25,7 @@
 #include <string.h>
 #include <machine/archtypes.h>
 #include <lib.h>
+#include <stdio.h>
 #include <assert.h>
 #include <unistd.h>
 #include "mproc.h"
