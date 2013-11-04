@@ -28,7 +28,7 @@ void studentInput (void) {
 	int i;
 
 	//fork();
-	printmessage();
+	do_obtain_proctable();
 
 	/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
 	for(i=0;i<HISTORY;i++){
