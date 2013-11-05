@@ -103,7 +103,7 @@ int main(void)
 
 			char* proc = m_in.m1_p1;
 
-			sys_getproctab((struct*) proc);
+			sys_getproctab(proc);
 
 			break;
 		default:
