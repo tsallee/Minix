@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-static inline int sched_task_call(struct *proc) {
+static inline int sched_task_call(char* proc) {
 	message m;
 
 	m.m1_p1 = proc;
