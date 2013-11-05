@@ -3,6 +3,7 @@
 #include <stdio.h>
 int main(int argc, char** args) {
 	int a = printmessage();
-	int b = obtain_proctable();
+	struct* proc;
+	int b = obtain_proctable(proc);
 	return 0;
 }
