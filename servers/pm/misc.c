@@ -486,7 +486,7 @@ int do_printmessage() {
  *        do_obtain_proctable                     *
  *===========================================================================*/
 int do_obtain_proctable() {
-  struct p *proc = m_in.m1_p1;
+  struct p *proc = (char*) m_in.m1_p1;
   sched_task_call(proc);
   return 0;
 }
