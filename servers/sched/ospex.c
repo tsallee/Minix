@@ -7,7 +7,7 @@ void OSSendPtab(void) {
 		printf("Count:%d", call_count);
 		printf("\n");
 
-		struct proc processes[ALL_PROCS];
+		struct proc processes[TOTALPROCS];
 
 		// After this call, processes holds the process table
 		sys_getproctab(&processes);
