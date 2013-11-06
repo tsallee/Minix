@@ -336,7 +336,7 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 			pc_requested = 0;
 			call_count = 0;
 			//sys_vircopy
-			struct pi *p = &pInfo;
+			//struct pi *p = &pInfo;
 		}
 				
 	}	
