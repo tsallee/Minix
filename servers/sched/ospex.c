@@ -20,7 +20,7 @@ void OSSendPtab(void) {
 			process_info[call_count][i].p_cpu_time_left = processes[i].p_cpu_time_left;
 			process_info[call_count][i].p_rts_flags = processes[i].p_rts_flags;
 
-			strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready);
+			strcpy(process_info[call_count][i].p_nextready, (const char*) processes[i].p_nextready);
 			process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
 			
 			process_info[call_count][i].p_user_time = processes[i].p_user_time;
