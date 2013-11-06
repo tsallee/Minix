@@ -34,9 +34,9 @@ extern struct machine machine;		/* machine info */
 
 extern int call_count; // Counts how many times OSSendPtab has been called
 extern int pc_requested; // Is true if the system call has been received, false after 50 iterations.
-extern struct pi process_info // holds the info gathered by sys_getproctab
-extern char* p_info_pointers // holds the address of p_info_pointers, which is used by sys_vircopy
-extern int user_proc_id = // holds the process id of the user process
+extern struct pi process_info; // holds the info gathered by sys_getproctab
+extern char* p_info_pointers; // holds the address of p_info_pointers, which is used by sys_vircopy
+extern int user_proc_id; // holds the process id of the user process
 
 #define TOTALPROCS NR_TASKS + NR_PROCS 
 #define HISTORY 50 
