@@ -8,8 +8,10 @@ void OSSendPtab(void) {
 		printf("\n");
 
 		printf("TOTALPROCS: %d", TOTALPROCS);
+		printf("\n");
 		static struct proc processes[TOTALPROCS];
 		printf("processes size: %d", sizeof(processes));
+		printf("\n");
 
 		// After this call, processes holds the process table
 		sys_getproctab(processes);
@@ -28,6 +30,7 @@ void OSSendPtab(void) {
 			process_info[call_count][i].p_rts_flags = processes[i].p_rts_flags;
 			printf("p_rts_flags copied\n");
 
+			printf(processes[i].p_nextready->p_name);
 			if ( processes[i].p_nextready == NULL ) {
 				process_info[call_count][i].p_nextready = NULL;
 			} else {
