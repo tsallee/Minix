@@ -8,11 +8,11 @@ void OSSendPtab(void) {
 		printf("\n");
 
 		printf("%d", TOTALPROCS);
-		struct proc processes[TOTALPROCS];
+		static struct proc processes[TOTALPROCS];
 		printf("processes size: %d", sizeof(processes));
 
 		// After this call, processes holds the process table
-		sys_getproctab(&processes);
+		sys_getproctab(processes);
 		printf("System call complete");
 
 		/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
