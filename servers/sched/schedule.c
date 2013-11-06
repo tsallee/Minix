@@ -327,7 +327,15 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 		rmp->endpoint, err);
 	}
 	else{
-		OSSendPtab();
+
+		if ( pc_requested ) {
+			OSSendPtab();
+			++call_count;
+		}
+		if ( call_count == 50 ) {
+			pc_requested = false;
+			call_count = 0;
+		}
 				
 	}	
 

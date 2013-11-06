@@ -5,13 +5,12 @@ int count = 0;
 
 void OSSendPtab(void) {
 
-	if ( count < 50 ) {
-		struct pi pInfo[HISTORY][ALL_PROCS];
-		sys_getproctab(&pInfo[count]);
+		printf("Hello from OSSendPtab");
 
-		// Copy pInfo back to the user process
+		// struct pi pInfo[HISTORY][ALL_PROCS];
+		// sys_getproctab(&pInfo[count]);
 
-		count++;
-	}
+		// // Copy pInfo back to the user process
+
 
 }

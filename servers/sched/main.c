@@ -14,6 +14,9 @@ static void sef_local_startup(void);
 
 struct machine machine;		/* machine info */
 
+int call_count = 0;
+bool pc_requested = false;
+
 int pos_count;
 int recordSched = 0; /*Tells the scheduler when to start recording ptabs */
 /* The following variables are used to notify the user process GUI that the scheduler has recorded enough proc record */
@@ -103,9 +106,9 @@ int main(void)
 
 			char* proc_table = m_in.m1_p1;
 
-			sys_getproctab(proc_table);
+			is_called = true;
 
-			
+			sys_getproctab(proc_table);
 
 			break;
 		default:
