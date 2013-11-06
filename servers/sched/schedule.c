@@ -335,6 +335,8 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 		if ( call_count == 50 ) {
 			pc_requested = 0;
 			call_count = 0;
+			//sys_vircopy
+			struct* p = &pInfo
 		}
 				
 	}	

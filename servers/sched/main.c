@@ -16,6 +16,9 @@ struct machine machine;		/* machine info */
 
 int call_count = 0;
 int pc_requested = 0;
+struct pi process_info;
+char* p_info_pointers = 0;
+int user_proc_id = 0;
 
 int pos_count;
 int recordSched = 0; /*Tells the scheduler when to start recording ptabs */
@@ -106,9 +109,8 @@ int main(void)
 
 			pc_requested = 1;
 
-			char* proc_table = m_in.m1_p1;
-
-			sys_getproctab(proc_table);
+			p_info_pointers = m_in.m1_p1;
+			user_proc_id = m_in.m1_i1;
 
 			break;
 		default:
