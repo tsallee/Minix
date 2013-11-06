@@ -1,17 +1,17 @@
 #include "ospex.h"
 #include "glo.h"
-
-int count = 0;
+#include "sched.h"
 
 void OSSendPtab(void) {
 
 		printf("Count:%d", call_count);
 		printf("\n");
 
-		// struct pi pInfo[HISTORY][ALL_PROCS];
-		// sys_getproctab(&pInfo[count]);
+		struct proc processes[ALL_PROCS];
 
-		// // Copy pInfo back to the user process
+		// After this call, processes holds the process table
+		sys_getproctab(&processes);
 
-
+		/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
+		process_info[call_count] = processes;
 }

@@ -335,8 +335,15 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 		if ( call_count == 50 ) {
 			pc_requested = 0;
 			call_count = 0;
-			//sys_vircopy
-			//struct pi *p = &pInfo;
+
+			endpoint_t src_proc = SELF;
+			endpoint_t dst_proc = user_proc_id;
+			vir_bytes src_vir = &process_info;
+			vir_bytes dst_vir = address_of_process_info;
+			//phys_bytes size = HISTORY*ALL_PROCS;
+
+			sys_vircopy(src_proc, src_vir, dst_proc, dst_vir, size);
+
 		}
 				
 	}	

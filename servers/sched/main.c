@@ -108,8 +108,7 @@ int main(void)
 			printf("Hello from Sched Server\n");
 
 			pc_requested = 1;
-
-			p_info_pointers = m_in.m1_p1;
+			address_of_process_info = m_in.m1_p1;
 			user_proc_id = m_in.m1_i1;
 
 			break;

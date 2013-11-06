@@ -16,7 +16,7 @@ HINT: You can add this to the kernel call from part 2. */
 #include "student.h"
 #include <stdio.h>
 
-struct pi *pInfoPtrs[HISTORY];
+struct pi* pInfoPtrs[HISTORY];
 struct pi pInfo[HISTORY][ALL_PROCS];
 u64_t cpuFreq;
 struct qh *pQhPtrs[HISTORY];
@@ -28,7 +28,7 @@ void studentInput (void) {
 	int i;
 
 	// After this call, pInfo will hold the process table
-	obtain_proctable(pInfoPtrs);
+	obtain_proctable(&pInfo);
 
 	/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
 	for(i=0;i<HISTORY;i++){
