@@ -26,6 +26,7 @@
 #include "proto.h"
 #include "kernel/proc.h" /* for queue constants */
 #include <string.h>
+#include <minix/pi.h>
 
 extern struct machine machine;		/* machine info */
 
