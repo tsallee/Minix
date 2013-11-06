@@ -342,7 +342,7 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 			vir_bytes dst_vir = address_of_process_info;
 			//phys_bytes size = HISTORY*ALL_PROCS;
 
-			sys_vircopy(src_proc, src_vir, dst_proc, dst_vir, size);
+			//sys_vircopy(src_proc, src_vir, dst_proc, dst_vir, size);
 
 		}
 				
