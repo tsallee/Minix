@@ -32,7 +32,7 @@ void OSSendPtab(void) {
 
 			printf(processes[i].p_nextready->p_name);
 			if ( processes[i].p_nextready == NULL ) {
-				process_info[call_count][i].p_nextready = NULL;
+				strcpy(process_info[call_count][i].p_nextready, NULL);
 			} else {
 				strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready->p_name);
 			}
