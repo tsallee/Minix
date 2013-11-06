@@ -28,7 +28,7 @@ void OSSendPtab(void) {
 			process_info[call_count][i].p_rts_flags = processes[i].p_rts_flags;
 			printf("p_rts_flags copied\n");
 
-			strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready.p_name);
+			strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready->p_name);
 			printf("p_nextready copied\n");
 			process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
 			printf("p_nextready_endpoint copied\n");
