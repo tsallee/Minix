@@ -8,6 +8,8 @@ void OSSendPtab(void) {
 		printf("\n");
 
 		struct proc processes[TOTALPROCS];
+		printf("processes size: ");
+		printf(sizeof(processes));
 
 		// After this call, processes holds the process table
 		sys_getproctab(&processes);
