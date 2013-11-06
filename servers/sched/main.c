@@ -16,7 +16,7 @@ struct machine machine;		/* machine info */
 
 int call_count = 0; // Counts how many times OSSendPtab has been called
 int pc_requested = 0; // Is true if the system call has been received, false after 50 iterations.
-char* address_of_process_info; // Holds the address of pInfo from student.c
+vir_bytes address_of_process_info; // Holds the address of pInfo from student.c
 struct pi process_info[HISTORY][TOTALPROCS]; // holds the info gathered by sys_getproctab
 char* p_info_pointers[HISTORY]; // holds the address of p_info_pointers, which is used by sys_vircopy
 int user_proc_id = 0; // holds the process id of the user process
