@@ -15,7 +15,7 @@ static void sef_local_startup(void);
 struct machine machine;		/* machine info */
 
 int call_count = 0;
-bool pc_requested = false;
+int pc_requested = 0;
 
 int pos_count;
 int recordSched = 0; /*Tells the scheduler when to start recording ptabs */
@@ -104,9 +104,9 @@ int main(void)
 
 			printf("Hello from Sched Server\n");
 
-			char* proc_table = m_in.m1_p1;
+			pc_requested = 1;
 
-			is_called = true;
+			char* proc_table = m_in.m1_p1;
 
 			sys_getproctab(proc_table);
 

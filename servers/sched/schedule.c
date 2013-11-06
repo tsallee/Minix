@@ -333,7 +333,7 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 			++call_count;
 		}
 		if ( call_count == 50 ) {
-			pc_requested = false;
+			pc_requested = 0;
 			call_count = 0;
 		}
 				

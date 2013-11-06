@@ -29,7 +29,7 @@
 
 extern struct machine machine;		/* machine info */
 extern int call_count; // Counts how many times OSSendPtab has been called
-extern bool pc_requested; // Is true if the system call has been received, false after 50 iterations.
+extern int pc_requested; // Is true if the system call has been received, false after 50 iterations.
 
 #define TOTALPROCS NR_TASKS + NR_PROCS 
 #define HISTORY 50 
