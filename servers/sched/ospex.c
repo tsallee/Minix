@@ -5,7 +5,8 @@ int count = 0;
 
 void OSSendPtab(void) {
 
-		printf("Hello from OSSendPtab%d", call_count);
+		printf("Count:%d", call_count);
+		printf("\n");
 
 		// struct pi pInfo[HISTORY][ALL_PROCS];
 		// sys_getproctab(&pInfo[count]);
