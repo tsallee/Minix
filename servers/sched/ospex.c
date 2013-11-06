@@ -13,7 +13,18 @@ void OSSendPtab(void) {
 		sys_getproctab(&processes);
 
 		/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
-		process_info[call_count] = processes;
-
-		++call_count;
+		for ( int i = 0; i < TOTALPROCS; i++ ) {
+			process_info[call_count][i].p_name = processes[i].p_name;
+			process_info[call_count][i].p_name = processes[i].p_endpoint;
+			process_info[call_count][i].p_priority = processes[i].p_priority;
+			process_info[call_count][i].p_cpu_time_left = processes[i].p_cpu_time_left;
+			process_info[call_count][i].p_rts_flags = processes[i].p_rts_flags;
+			process_info[call_count][i].queue_head = processes[i].queue_head;
+			process_info[call_count][i].p_nextready[PROC_NAME_LEN] = processes[i].p_nextready[PROC_NAME_LEN];
+			process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready_endpoint;
+			process_info[call_count][i].p_times = processes[i].p_times;
+			process_info[call_count][i].p_user_time = processes[i].p_user_time;
+			process_info[call_count][i].p_sys_time = processes[i].p_sys_time;
+			process_info[call_count][i].p_cycles = processes[i].p_cycles;
+		}
 }
