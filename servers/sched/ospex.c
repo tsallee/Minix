@@ -32,13 +32,14 @@ void OSSendPtab(void) {
 			printf("p_rts_flags copied\n");
 
 			if ( processes[i].p_nextready == NULL ) {
-				printf("p_nextready is null");
+				printf("p_nextready is null\n");
 				strcpy(process_info[call_count][i].p_nextready, "NULL");
+				process_info[call_count][i].p_nextready_endpoint = 0;
 			} else {
 				strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready->p_name);
+				process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
 			}
 			printf("p_nextready copied\n");
-			process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
 			printf("p_nextready_endpoint copied\n");
 
 			process_info[call_count][i].p_user_time = processes[i].p_user_time;
