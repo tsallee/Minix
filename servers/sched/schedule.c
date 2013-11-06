@@ -330,7 +330,6 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 
 		if ( pc_requested ) {
 			OSSendPtab();
-			++call_count;
 		}
 		if ( call_count == 50 ) {
 			pc_requested = 0;

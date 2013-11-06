@@ -14,4 +14,6 @@ void OSSendPtab(void) {
 
 		/* Replace struct pi pInfo[i][] = NULL with process table information from the scheduler*/
 		process_info[call_count] = processes;
+
+		++call_count;
 }
