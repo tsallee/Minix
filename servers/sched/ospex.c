@@ -22,9 +22,12 @@ void OSSendPtab(void) {
 			process_info[call_count][i].queue_head = processes[i].queue_head;
 			strcpy(process_info[call_count][i].p_nextready[PROC_NAME_LEN], processes[i].p_nextready[PROC_NAME_LEN]);
 			process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
-			process_info[call_count][i].p_times = processes[i].p_times;
+			
 			process_info[call_count][i].p_user_time = processes[i].p_user_time;
 			process_info[call_count][i].p_sys_time = processes[i].p_sys_time;
 			process_info[call_count][i].p_cycles = processes[i].p_cycles;
+
+			// Assign individually
+			//process_info[call_count][i].p_times = processes[i].p_times;
 		}
 }
