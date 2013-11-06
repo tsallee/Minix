@@ -28,9 +28,11 @@ void OSSendPtab(void) {
 			process_info[call_count][i].p_cpu_time_left = processes[i].p_cpu_time_left;
 			printf("p_cpu_time_left copied\n");
 			process_info[call_count][i].p_rts_flags = processes[i].p_rts_flags;
+			printf(processes[i].p_nextready->p_name);
+
 			printf("p_rts_flags copied\n");
 
-			printf(processes[i].p_nextready->p_name);
+			
 			if ( processes[i].p_nextready == NULL ) {
 				strcpy(process_info[call_count][i].p_nextready, NULL);
 			} else {
