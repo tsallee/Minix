@@ -28,6 +28,12 @@ void OSSendPtab(void) {
 			process_info[call_count][i].p_cycles = processes[i].p_cycles;
 
 			// Assign individually
-			//process_info[call_count][i].p_times = processes[i].p_times;
+			process_info[call_count][i].p_times.enter_queue = processes[i].p_accounting.enter_queue;
+			process_info[call_count][i].p_times.time_in_queue = processes[i].p_accounting.time_in_queue;
+			process_info[call_count][i].p_times.dequeues = processes[i].p_accounting.dequeues;
+			process_info[call_count][i].p_times.ipc_sync = processes[i].p_accounting.ipc_sync;
+			process_info[call_count][i].p_times.ipc_async = processes[i].p_accounting.ipc_async;
+			process_info[call_count][i].p_times.preempted = processes[i].p_accounting.preempted;
+
 		}
 }
