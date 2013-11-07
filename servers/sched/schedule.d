@@ -49,5 +49,5 @@ schedule.o: schedule.c sched.h /usr/include/minix/config.h \
   /usr/src/kernel/config.h /usr/src/kernel/debug.h \
   /usr/include/minix/debug.h /usr/src/kernel/priv.h \
   /usr/include/minix/priv.h /usr/src/kernel/type.h /usr/include/string.h \
-  /usr/include/strings.h /usr/include/minix/pi.h schedproc.h \
-  /usr/include/assert.h glo.h /usr/src/kernel/cpulocals.h ospex.h
+  /usr/include/strings.h schedproc.h /usr/include/assert.h glo.h \
+  /usr/include/minix/pi.h /usr/src/kernel/cpulocals.h ospex.h
