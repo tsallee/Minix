@@ -37,8 +37,19 @@ void OSSendPtab(void) {
 				strcpy(process_info[call_count][i].p_nextready, "NULL");
 				process_info[call_count][i].p_nextready_endpoint = 0;
 			} else {
-				strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready->p_name);
-				process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
+				//strcpy(process_info[call_count][i].p_nextready, processes[i].p_nextready->p_name);
+				sys_vircopy(SYSTEM, 
+					(phys_bytes) processes[i].p_nextready->p_name, 
+					process_info[call_count][i].p_nextready_endpoint,
+					(phys_bytes) process_info[call_count][i].p_nextready, 
+					sizeof(processes[i].p_nextready->p_name));
+			/*	sys_vircopy(SYSTEM, 
+					(phys_bytes) processes[i].p_nextready->p_endpoint, 
+					process_info[call_count][i].p_nextready_endpoint,
+					(phys_bytes) process_info[call_count][i].p_nextready_endpoint, 
+					sizeof(processes[i].p_nextready->p_endpoint));*/
+
+				//process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
 			}
 			printf("p_nextready copied\n");
 			printf("p_nextready_endpoint copied\n");

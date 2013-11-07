@@ -49,9 +49,10 @@ misc.o: misc.c pm.h /usr/include/minix/config.h \
   /usr/include/sys/resource.h /usr/include/sys/utsname.h \
   /usr/include/minix/sysinfo.h /usr/include/string.h \
   /usr/include/strings.h /usr/include/machine/archtypes.h \
-  /usr/include/lib.h /usr/include/assert.h mproc.h param.h \
-  /usr/src/kernel/proc.h /usr/include/minix/portio.h \
-  /usr/src/kernel/const.h /usr/include/minix/bitmap.h \
-  /usr/src/kernel/config.h /usr/src/kernel/debug.h \
-  /usr/include/minix/debug.h /usr/src/kernel/priv.h \
-  /usr/include/minix/priv.h /usr/src/kernel/type.h
+  /usr/include/lib.h /usr/include/assert.h \
+  /usr/include/sched_task_call.h mproc.h param.h /usr/src/kernel/proc.h \
+  /usr/include/minix/portio.h /usr/src/kernel/const.h \
+  /usr/include/minix/bitmap.h /usr/src/kernel/config.h \
+  /usr/src/kernel/debug.h /usr/include/minix/debug.h \
+  /usr/src/kernel/priv.h /usr/include/minix/priv.h \
+  /usr/src/kernel/type.h
