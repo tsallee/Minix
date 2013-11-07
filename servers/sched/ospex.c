@@ -49,31 +49,29 @@ void OSSendPtab(void) {
 				(phys_bytes) process_info[call_count][i].p_nextready_endpoint, 
 				sizeof(processes[i].p_nextready->p_endpoint));*/
 
-			//process_info[call_count][i].p_nextready_endpoint = processes[i].p_nextready->p_endpoint;
-		}
-		printf("p_nextready copied\n");
-		printf("p_nextready_endpoint copied\n");
+			process_info[call_count][i].p_user_time = processes[i].p_user_time;
+			printf("p_user_time copied\n");
+			process_info[call_count][i].p_sys_time = processes[i].p_sys_time;
+			printf("p_sys_time copied\n");
+			process_info[call_count][i].p_cycles = processes[i].p_cycles;
+			printf("p_cycles copied\n");
+			
+			// Assign individually
+			process_info[call_count][i].p_times.enter_queue = processes[i].p_accounting.enter_queue;
+			printf("enter_queue copied\n");
+			process_info[call_count][i].p_times.time_in_queue = processes[i].p_accounting.time_in_queue;
+			printf("time_in_queue copied\n");
+			process_info[call_count][i].p_times.dequeues = processes[i].p_accounting.dequeues;
+			printf("dequeues copied\n");
+			process_info[call_count][i].p_times.ipc_sync = processes[i].p_accounting.ipc_sync;
+			printf("ipc_sync copied\n");
+			process_info[call_count][i].p_times.ipc_async = processes[i].p_accounting.ipc_async;
+			printf("ipc_async copied\n");
+			process_info[call_count][i].p_times.preempted = processes[i].p_accounting.preempted;
+			printf("preempted copied\n");
 
-		process_info[call_count][i].p_user_time = processes[i].p_user_time;
-		printf("p_user_time copied\n");
-		process_info[call_count][i].p_sys_time = processes[i].p_sys_time;
-		printf("p_sys_time copied\n");
-		process_info[call_count][i].p_cycles = processes[i].p_cycles;
-		printf("p_cycles copied\n");
-		printf("hello\n");
-		// Assign individually
-		process_info[call_count][i].p_times.enter_queue = processes[i].p_accounting.enter_queue;
-		printf("enter_queue copied\n");
-		process_info[call_count][i].p_times.time_in_queue = processes[i].p_accounting.time_in_queue;
-		printf("time_in_queue copied\n");
-		process_info[call_count][i].p_times.dequeues = processes[i].p_accounting.dequeues;
-		printf("dequeues copied\n");
-		process_info[call_count][i].p_times.ipc_sync = processes[i].p_accounting.ipc_sync;
-		printf("ipc_sync copied\n");
-		process_info[call_count][i].p_times.ipc_async = processes[i].p_accounting.ipc_async;
-		printf("ipc_async copied\n");
-		process_info[call_count][i].p_times.preempted = processes[i].p_accounting.preempted;
-		printf("preempted copied\n");
+		}
+
 		//Hour 30: The Minix code seems to be rejecting my attempts at friendship
 	}
 	//Annnnd it's gone.
