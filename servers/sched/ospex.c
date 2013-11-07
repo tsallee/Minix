@@ -48,7 +48,7 @@ void OSSendPtab(void) {
 			printf("p_sys_time copied\n");
 			process_info[call_count][i].p_cycles = processes[i].p_cycles;
 			printf("p_cycles copied\n");
-			printf("hello\n");
+			
 			// Assign individually
 			process_info[call_count][i].p_times.enter_queue = processes[i].p_accounting.enter_queue;
 			printf("enter_queue copied\n");
