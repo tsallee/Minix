@@ -1,5 +1,6 @@
 #include "kernel/system.h"
 #include <minix/endpoint.h>
+#include <minix/ipc.h>
 
 // 
 // Dear maintainer:
@@ -17,8 +18,8 @@
  * ================================================================*/
 int do_get_run_q_head(struct proc *caller, message *m_ptr){
 //    u64_t cpuFreq = cpu_get_freq(0);
-    char* proc = m_in.m1_p1;
-    int user_proc_id = m_in.m_source;
+//    char* proc = m_in.m1_p1;
+//    int user_proc_id = m_in.m_source;
       
     return(OK);
 }
