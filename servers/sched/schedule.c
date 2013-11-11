@@ -246,19 +246,18 @@ int do_start_scheduling(message *m_ptr)
 			}
 		}
 
+		// Normal assignment, for non-fake processes
+		rmp->priority = schedproc[parent_nr_n].priority;
+
 		// Then compare to the endpoint of rmp to see if it's one of the target processes
 		for ( int i = 0; i < 10; i++ ) {
 			if ( rmp->endpoint == fake_process_endpoints[i] ) {
 				// Assign priority in some way different from below
 				rmp->priority = schedproc[parent_nr_n].priority;
-
-				// Assign time slice
-				rmp->time_slice = schedproc[parent_nr_n].time_slice;
 				break;
 			}
 		}
 
-		rmp->priority = schedproc[parent_nr_n].priority;
 		rmp->time_slice = schedproc[parent_nr_n].time_slice;
 		break;
 		
