@@ -222,9 +222,7 @@ int do_start_scheduling(message *m_ptr)
 		// Holds the names of the 10 fake processes
 		char* fake_process_names[10];
 		for ( int i = 0; i < 10; i++ ) {
-			char* proc_name = "proc";
-			strcat(proc_name, itoa(i + 1));
-			fake_process_names[i] = proc_name;
+			fake_process_names[i] = "proc" + itoa(i + 1);
 		}
 		// Holds the endpoints of the 10 fake processes
 		endpoint_t fake_process_endpoints[10];
@@ -240,8 +238,8 @@ int do_start_scheduling(message *m_ptr)
 			// Check if the process is one of the fake ones. If it is, add it
 			// to the fake_process_endpoints array
 			for ( int i = 0; i < 10; i++ ) {
-				if ( process_table[i].p_name == fake_process_names[i] ) {
-					fake_process_endpoints[i] = process_table[i].p_endpoint;
+				if ( tmpPtab[i].p_name == fake_process_names[i] ) {
+					fake_process_endpoints[i] = tmpPtab[i].p_endpoint;
 				}
 			}
 		}
