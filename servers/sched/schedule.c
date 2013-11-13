@@ -233,13 +233,13 @@ int do_start_scheduling(message *m_ptr)
 		fake_process_names[8] = "proc9\0";
 		fake_process_names[9] = "proc10\0";
 
-		// // Holds the endpoints of the 10 fake processes
-		// endpoint_t fake_process_endpoints[10];
-		// // Holds a snapshot of the process table
-		// struct proc process_table[NR_PROCS + NR_TASKS];
-		// // Get a copy of the process table
-		// sys_getproctab((struct proc *) &process_table);
-		// // Loop through all the processes in the process table
+		// Holds the endpoints of the 10 fake processes
+		endpoint_t fake_process_endpoints[10];
+		// Holds a snapshot of the process table
+		struct proc process_table[NR_PROCS + NR_TASKS];
+		// Get a copy of the process table
+		sys_getproctab((struct proc *) &process_table);
+		// Loop through all the processes in the process table
 		// for ( int j = 0; j < (NR_PROCS+NR_TASKS); j++ ) {
 		// 	// Check if the process is one of the fake ones. If it is, add it
 		// 	// to the fake_process_endpoints array
