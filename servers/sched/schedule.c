@@ -218,23 +218,26 @@ int do_start_scheduling(message *m_ptr)
 
 		// Check if the process is one of the 10 fake processes we are working with
 		// First get endpoints of the 10 processes we are working with
-
+		printf("Start of code changes");
 		// Holds the names of the 10 fake processes
 		char* fake_process_names[10];
+		printf("Delcared process names array");
+
 		for ( int i = 0; i < 10; i++ ) {
 			char* proc_name = "proc";
 			strcat(proc_name, itoa(i + 1));
 			fake_process_names[i] = proc_name;
 		}
+		printf("Past for loop");
 		// Holds the endpoints of the 10 fake processes
 		endpoint_t fake_process_endpoints[10];
-
+		printf("Created fake process endpoints array");
 		// Holds a snapshot of the process table
-		struct proc process_table[NR_PROCS +NR_TASKS];
-
+		struct proc process_table[NR_PROCS + NR_TASKS];
+		printf("created struct proc process_table");
 		// Get a copy of the process table
 		sys_getproctab((struct proc *) &process_table);
-
+		printf("done with system call");
 		// Loop through all the processes in the process table
 		for ( int j = 0; j < (NR_PROCS+NR_TASKS); j++ ) {
 			// Check if the process is one of the fake ones. If it is, add it
