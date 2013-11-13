@@ -223,11 +223,11 @@ int do_start_scheduling(message *m_ptr)
 		char* fake_process_names[10];
 		printf("Delcared process names array");
 
-		for ( int i = 0; i < 10; i++ ) {
-			char* proc_name = "proc";
-			strcat(proc_name, itoa(i + 1));
-			fake_process_names[i] = proc_name;
-		}
+		// for ( int i = 0; i < 10; i++ ) {
+		// 	char* proc_name = "proc";
+		// 	strcat(proc_name, itoa(i + 1));
+		// 	fake_process_names[i] = proc_name;
+		// }
 		printf("Past for loop");
 		// Holds the endpoints of the 10 fake processes
 		endpoint_t fake_process_endpoints[10];
