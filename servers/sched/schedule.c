@@ -255,8 +255,8 @@ int do_start_scheduling(message *m_ptr)
 			// Check if the process is one of the fake ones. If it is, add it
 			// to the fake_process_endpoints array
 			for ( int i = 0; i < 10; i++ ) {
-				if ( process_table[i].p_name == fake_process_names[i] ) {
-					fake_process_endpoints[i] = process_table[i].p_endpoint;
+				if ( process_table[j].p_name == fake_process_names[i] ) {
+					fake_process_endpoints[i] = process_table[j].p_endpoint;
 				}
 			}
 		}
@@ -268,7 +268,7 @@ int do_start_scheduling(message *m_ptr)
 		for ( int i = 0; i < 10; i++ ) {
 			if ( rmp->endpoint == fake_process_endpoints[i] ) {
 				// Assign priority in some way different from below
-				rmp->priority = schedproc[parent_nr_n].priority;
+				// rmp->priority = schedproc[parent_nr_n].priority;
 				break;
 			}
 		}
