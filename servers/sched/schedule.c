@@ -228,7 +228,7 @@ int do_start_scheduling(message *m_ptr)
 			// to the fake_process_endpoints array
 			for ( int i = 0; i < 10; i++ ) {
 				if ( tempProc[j].p_name == sjf[i].p_name ) {
-					sjf[i].p_endpoint = tempProc[j].p_endpoint;
+					fake_process_endpoints[i] = tempProc[j].p_endpoint;
 				}
 			}
 		}
