@@ -227,8 +227,8 @@ int do_start_scheduling(message *m_ptr)
 			// Check if the process is one of the fake ones. If it is, add it
 			// to the fake_process_endpoints array
 			for ( int i = 0; i < 10; i++ ) {
-				if ( tempProc[j].p_name == fake_process_names[i] ) {
-					fake_process_endpoints[i] = tempProc[j].p_endpoint;
+				if ( tempProc[j].p_name == sjf[i] ) {
+					sjf[i] = tempProc[j].p_endpoint;
 				}
 			}
 		}
