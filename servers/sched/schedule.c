@@ -240,7 +240,7 @@ int do_start_scheduling(message *m_ptr)
 		for ( int i = 0; i < 10; i++ ) {
 			if ( rmp->endpoint == fake_process_endpoints[i] ) {
 				// Assign priority in some way different from below
-				// rmp->priority = schedproc[parent_nr_n].priority;
+				rmp->priority = 9;
 				break;
 			}
 		}
