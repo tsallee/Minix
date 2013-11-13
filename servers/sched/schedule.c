@@ -222,15 +222,16 @@ int do_start_scheduling(message *m_ptr)
 		// Holds the names of the 10 fake processes
 		char* fake_process_names[10];
 
-		char proc_1[PROC_NAME_LEN] = "proc1\0";
-		char proc_2[PROC_NAME_LEN] = "proc2\0";
-		char proc_3[PROC_NAME_LEN] = "proc3\0";
-		char proc_4[PROC_NAME_LEN] = "proc4\0";
-		char proc_5[PROC_NAME_LEN] = "proc5\0";
-		char proc_6[PROC_NAME_LEN] = "proc7\0";
-		char proc_7[PROC_NAME_LEN] = "proc8\0";
-		char proc_8[PROC_NAME_LEN] = "proc9\0";
-		char proc_9[PROC_NAME_LEN] = "proc10\0";
+		char proc1[PROC_NAME_LEN] = "proc1\0";
+		char proc2[PROC_NAME_LEN] = "proc2\0";
+		char proc3[PROC_NAME_LEN] = "proc3\0";
+		char proc4[PROC_NAME_LEN] = "proc4\0";
+		char proc5[PROC_NAME_LEN] = "proc5\0";
+		char proc6[PROC_NAME_LEN] = "proc6\0";
+		char proc7[PROC_NAME_LEN] = "proc7\0";
+		char proc8[PROC_NAME_LEN] = "proc8\0";
+		char proc9[PROC_NAME_LEN] = "proc9\0";
+		char proc10[PROC_NAME_LEN] = "proc10\0";
 
 		fake_process_names[0] = proc1;
 		fake_process_names[1] = proc2;
