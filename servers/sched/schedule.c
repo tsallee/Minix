@@ -238,7 +238,7 @@ int do_start_scheduling(message *m_ptr)
 		// Holds a snapshot of the process table
 		struct proc process_table[NR_PROCS + NR_TASKS];
 		// // Get a copy of the process table
-		// sys_getproctab((struct proc *) &process_table);
+		sys_getproctab((struct proc *) &process_table);
 		// Loop through all the processes in the process table
 		// for ( int j = 0; j < (NR_PROCS+NR_TASKS); j++ ) {
 		// 	// Check if the process is one of the fake ones. If it is, add it
