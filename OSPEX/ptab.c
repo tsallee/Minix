@@ -96,9 +96,9 @@ displayTab_x = 30;
 displayTab_y = floor((1.0/16.0)*window_width);
 
 /*Set text constants for button*/
-char* stButText = "Start Simulation";
-char* rgButText = "Running...";
-char* scButText = "Simulation Complete";
+char* stButText = "Start Stimulation";
+char* rgButText = "Stimulating...";
+char* scButText = "Stimulation Complete";
 char* etButText = "Exit";
 char* ntButText = "Next >>>";
 char* psButText = "<<< Previous";
@@ -335,9 +335,9 @@ void drawScreen (Display *dispPtr,
 
 	int i;
 	/*Set text constants for button*/
-	char* stButText = "Start Simulation";
-	char* rgButText = "Running...";
-	char* scButText = "Simulation Complete";
+	char* stButText = "Start Stimulation";
+	char* rgButText = "Stimulating...";
+	char* scButText = "Stimulation Complete";
 	char* etButText = "Exit";
 	char* ntButText = "Next >>>";
 	char* psButText = "<<< Previous";
