@@ -15,6 +15,7 @@
 #include "glo.h"
 #include "kernel/cpulocals.h"
 #include "ospex.h"
+#include "kernel/proc.h"
 
 static timer_t sched_timer;
 static unsigned balance_timeout;
@@ -216,36 +217,54 @@ int do_start_scheduling(message *m_ptr)
 				&parent_nr_n)) != OK)
 			return rv;
 
-		// Holds the endpoints of the 10 fake processes
-		endpoint_t fake_process_endpoints[10];
-
 		// Get a copy of the process table
 		sys_getproctab((struct proc *) &tempProc);
 		
 		// Loop through all the processes in the process table
 		for ( int j = 0; j < (NR_PROCS+NR_TASKS); j++ ) {
-			// Check if the process is one of the fake ones. If it is, add it
-			// to the fake_process_endpoints array
-			for ( int i = 0; i < 10; i++ ) {
+			// Check if the process is one of the fake ones. If it is, assign it an endpoint
+			for ( int i = 0; i < PROCNUM; i++ ) {
 				if ( tempProc[j].p_name == sjf[i].p_name ) {
-					fake_process_endpoints[i] = tempProc[j].p_endpoint;
+					sjf[i].p_endpoint = tempProc[j].p_endpoint;
+					sfj[i].predBurst = (.75)*(tempProc[j].p_cycles) + (.25)*sjf[i].predBurst;
 				}
 			}
 		}
 
 		// Normal assignment, for non-fake processes
 		rmp->priority = schedproc[parent_nr_n].priority;
+		rmp->time_slice = schedproc[parent_nr_n].time_slice;
 
 		// Then compare to the endpoint of rmp to see if it's one of the target processes
-		for ( int i = 0; i < 10; i++ ) {
-			if ( rmp->endpoint == fake_process_endpoints[i] ) {
-				// Assign priority in some way different from below
-				rmp->priority = 9;
+		for ( int i = 0; i < PROCNUM; i++ ) {
+
+			if ( rmp->endpoint == sjf[i].p_endpoint ) {
+				
+				// sjf[i] is the new (incoming) process
+				
+				// Order proc based on spn
+				int minExpectedBurst = sjf[0].predBurst;
+				int indexOfMin = 0;
+
+				// Find shortest processes (based on expected burst)
+				for ( int j = 0; j < PROCNUM; j++ ) {
+					if ( sjf[j].predBurst < minExpectedBurst ) {
+						maxExpectedBurst = sjf[j].predBurst;
+						indexOfMin = j;
+					}
+				}
+
+				// Move all the processes that are ahead of the minimum to end of queue
+				for ( int k = 0; k < indexOfMin; k++ ) {
+					// Move process to end of queue
+					sys_qptab(rmp->endpoint);
+				}
+
 				break;
 			}
+
 		}
 
-		rmp->time_slice = schedproc[parent_nr_n].time_slice;
 		break;
 		
 	default: 
