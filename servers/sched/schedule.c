@@ -59,6 +59,9 @@ struct sjf sjf[PROCNUM];
 int nr_procs,i;
 struct proc tempProc[NR_TASKS+NR_PROCS];
 
+// Our function for rearranging the processes
+struct schedproc* rearrange_order(struct schedproc* rmp);
+
 static void pick_cpu(struct schedproc * proc)
 {
 #ifdef CONFIG_SMP
@@ -302,7 +305,7 @@ struct schedproc* rearrange_order(struct schedproc* rmp) {
 			// Find shortest processes (based on expected burst)
 			for ( int j = 0; j < PROCNUM; j++ ) {
 				if ( sjf[j].predBurst < minExpectedBurst ) {
-					maxExpectedBurst = sjf[j].predBurst;
+					minExpectedBurst = sjf[j].predBurst;
 					indexOfMin = j;
 				}
 			}
