@@ -86,7 +86,7 @@ screenNum = DefaultScreen(dispPtr);
 display_width = DisplayWidth(dispPtr, screenNum);
 display_height = DisplayHeight(dispPtr, screenNum);
 window_width = 0.99*display_width;
-window_height = 0.99*display_height;
+window_height = 0.75*display_height;
 colormap = DefaultColormap(dispPtr,0);
 
 displayTab = 0;
@@ -396,7 +396,7 @@ int size;
 	}
 
 char procName[100];
-sprintf(procName, "%s(%d)", cpy->p_name, cpy->p_cpu_time_left);
+sprintf(procName, "%s\n(%d)", cpy->p_name, cpy->p_cpu_time_left);
 
 /* Print the process to the file, then see if there is another process in the nextready spot. If yes, recursively call this routine. If no, write a line feed for the next queue */
 size = sprintf(NULL,"%s",procName);
