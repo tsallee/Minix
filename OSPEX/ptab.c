@@ -85,7 +85,7 @@ screenPtr = DefaultScreenOfDisplay(dispPtr);
 screenNum = DefaultScreen(dispPtr);
 display_width = DisplayWidth(dispPtr, screenNum);
 display_height = DisplayHeight(dispPtr, screenNum);
-window_width = 0.99*display_width;
+window_width = 1.3*display_width;
 window_height = 0.75*display_height;
 colormap = DefaultColormap(dispPtr,0);
 
@@ -402,9 +402,6 @@ sprintf(procName, "%s(%d)", cpy->p_name, cpy->p_cpu_time_left);
 size = sprintf(NULL,"%s",procName);
 XDrawString(dispPtr,window,gc_red,(rectPts.x)+2,
 		(rectPts.y)+*verPos,procName,
-		size);
-XDrawString(dispPtr,window,gc_red,(rectPts.x)+2,
-		(rectPts.y + 10)+*verPos,procName,
 		size);
 		*verPos = *verPos + 20;
 	if(cpy->p_nextready_endpoint != -1){
