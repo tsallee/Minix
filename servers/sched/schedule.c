@@ -273,7 +273,7 @@ int do_start_scheduling(message *m_ptr)
  *				rearrange_order				 *
  *===========================================================================*/
 
-struct schedproc(stuct schedproc rmp) {
+struct schedproc rearrange_order(stuct schedproc rmp) {
 	// Get a copy of the process table
 	sys_getproctab((struct proc *) &tempProc);
 	
