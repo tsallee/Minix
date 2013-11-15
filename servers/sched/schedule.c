@@ -15,6 +15,7 @@
 #include "glo.h"
 #include "kernel/cpulocals.h"
 #include "ospex.h"
+#include "kernel/proc.h"
 
 static timer_t sched_timer;
 static unsigned balance_timeout;
@@ -222,7 +223,7 @@ int do_start_scheduling(message *m_ptr)
 		// Loop through all the processes in the process table
 		for ( int j = 0; j < (NR_PROCS+NR_TASKS); j++ ) {
 			// Check if the process is one of the fake ones. If it is, assign it an endpoint
-			for ( int i = 0; i < 10; i++ ) {
+			for ( int i = 0; i < PROCNUM; i++ ) {
 				if ( tempProc[j].p_name == sjf[i].p_name ) {
 					sjf[i].p_endpoint = tempProc[j].p_endpoint;
 					sfj[i].predBurst = (.75)*(tempProc[j].p_cycles) + (.25)*sjf[i].predBurst;
@@ -235,15 +236,30 @@ int do_start_scheduling(message *m_ptr)
 		rmp->time_slice = schedproc[parent_nr_n].time_slice;
 
 		// Then compare to the endpoint of rmp to see if it's one of the target processes
-		for ( int i = 0; i < 10; i++ ) {
+		for ( int i = 0; i < PROCNUM; i++ ) {
 
 			if ( rmp->endpoint == sjf[i].p_endpoint ) {
-				// TODO order proc based on spn
+				
+				// sjf[i] is the new (incoming) process
+				
+				// Order proc based on spn
+				int minExpectedBurst = sjf[0].predBurst;
+				int indexOfMin = 0;
 
-				// may need to store sjf rather than just endpoints, sjf can hold predBurst
-				// call sys_qptab, dequeues and enqueues process to top of queue
-				// TODO this is how we order the procs
-				sys_qptab(rmp->endpoint);
+				// Find shortest processes (based on expected burst)
+				for ( int j = 0; j < PROCNUM; j++ ) {
+					if ( sjf[j].predBurst < minExpectedBurst ) {
+						maxExpectedBurst = sjf[j].predBurst;
+						indexOfMin = j;
+					}
+				}
+
+				// Move all the processes that are ahead of the minimum to end of queue
+				for ( int k = 0; k < indexOfMin; k++ ) {
+					// Move process to end of queue
+					sys_qptab(rmp->endpoint);
+				}
+
 				break;
 			}
 
