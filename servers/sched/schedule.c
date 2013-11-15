@@ -273,7 +273,7 @@ int do_start_scheduling(message *m_ptr)
  *				rearrange_order				 *
  *===========================================================================*/
 
-struct schedproc rearrange_order(struct schedproc* rmp) {
+struct schedproc* rearrange_order(struct schedproc* rmp) {
 	// Get a copy of the process table
 	sys_getproctab((struct proc *) &tempProc);
 	
@@ -283,7 +283,7 @@ struct schedproc rearrange_order(struct schedproc* rmp) {
 		for ( int i = 0; i < PROCNUM; i++ ) {
 			if ( tempProc[j].p_name == sjf[i].p_name ) {
 				sjf[i].p_endpoint = tempProc[j].p_endpoint;
-				sfj[i].predBurst = (.75)*(tempProc[j].p_cycles) + (.25)*sjf[i].predBurst;
+				sjf[i].predBurst = (.75)*(tempProc[j].p_cycles) + (.25)*sjf[i].predBurst;
 			}
 		}
 	}
