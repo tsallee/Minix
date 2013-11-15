@@ -288,7 +288,7 @@ struct schedproc* rearrange_order(struct schedproc* rmp) {
 			if ( tempProc[j].p_name == sjf[i].p_name ) {
 				sjf[i].p_endpoint = tempProc[j].p_endpoint;
 				// Math? 3/4 instead of .75
-				sjf[i].predBurst = 3*(tempProc[j].p_cycles)/4 + sjf[i].predBurst/4;
+				sjf[i].predBurst = (.75)*(tempProc[j].p_cycles) + (.25)*sjf[i].predBurst;
 			}
 		}
 	}
