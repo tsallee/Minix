@@ -225,6 +225,7 @@ int do_start_scheduling(message *m_ptr)
 			for ( int i = 0; i < 10; i++ ) {
 				if ( tempProc[j].p_name == sjf[i].p_name ) {
 					sjf[i].p_endpoint = tempProc[j].p_endpoint;
+					sfj[i].predBurst = (.75)*(tempProc[j].p_cycles) + (.25)*sjf[i].predBurst;
 				}
 			}
 		}
