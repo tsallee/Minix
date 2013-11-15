@@ -403,6 +403,9 @@ size = sprintf(NULL,"%s",procName);
 XDrawString(dispPtr,window,gc_red,(rectPts.x)+2,
 		(rectPts.y)+*verPos,procName,
 		size);
+XDrawString(dispPtr,window,gc_red,(rectPts.x)+2,
+		(rectPts.y)+*verPos,procName,
+		size);
 		*verPos = *verPos + 20;
 	if(cpy->p_nextready_endpoint != -1){
 		printQGui(start,cpy->p_nextready_endpoint,rectPts,dispPtr,window,gc_red,verPos);
