@@ -395,10 +395,13 @@ int size;
 		cpy++;
 	}
 
+char procName[100];
+sprintf(procName, "%s(%d)", cpy->p_name, 9);
+
 /* Print the process to the file, then see if there is another process in the nextready spot. If yes, recursively call this routine. If no, write a line feed for the next queue */
-size = sprintf(NULL,"%s(%i)",cpy->p_name,9);
+size = sprintf(NULL,"%s",procName);
 XDrawString(dispPtr,window,gc_red,(rectPts.x)+2,
-		(rectPts.y)+*verPos,cpy->p_name,
+		(rectPts.y)+*verPos,procName,
 		size);
 		*verPos = *verPos + 20;
 	if(cpy->p_nextready_endpoint != -1){
